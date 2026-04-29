@@ -45,12 +45,12 @@
         value: 253.80
       });
 
-      // AddToCart: dispara quando o usuário clica no botão de compra
+      // InitiateCheckout: dispara quando o usuário clica no botão de compra
       document.addEventListener('click', function(e) {
         var link = e.target.closest('a');
         if (link && link.href && link.href.includes('pay.rotaautobrasil.site')) {
           var isProd1 = link.href.includes('4KovG1AJYJqGyDE');
-          ttq.track('AddToCart', {
+          ttq.track('InitiateCheckout', {
             content_type: 'product',
             content_id: isProd1 ? 'com-porta-malas' : 'sem-porta-malas',
             content_name: isProd1
