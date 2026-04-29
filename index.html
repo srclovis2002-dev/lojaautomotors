@@ -32,6 +32,39 @@
   }(window, document, 'ttq');
   </script>
   <!-- TikTok Pixel Code End -->
+  <!-- TikTok Pixel Events -->
+  <script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      // ViewContent: dispara quando o usuário visualiza o produto
+      ttq.track('ViewContent', {
+        content_type: 'product',
+        content_id: 'tapete-bandeja-3d-premium',
+        content_name: 'TAPETE BANDEJA 3D PREMIUM',
+        currency: 'BRL',
+        value: 253.80
+      });
+
+      // AddToCart: dispara quando o usuário clica no botão de compra
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (link && link.href && link.href.includes('pay.rotaautobrasil.site')) {
+          var isProd1 = link.href.includes('4KovG1AJYJqGyDE');
+          ttq.track('AddToCart', {
+            content_type: 'product',
+            content_id: isProd1 ? 'com-porta-malas' : 'sem-porta-malas',
+            content_name: isProd1
+              ? 'TAPETE BANDEJA 3D PREMIUM 5 PEÇAS INCLUSO PORTA MALAS'
+              : 'TAPETE BANDEJA 3D PREMIUM 5 PEÇAS SEM PORTA MALAS',
+            currency: 'BRL',
+            value: isProd1 ? 253.80 : 158.90,
+            quantity: 1
+          });
+        }
+      });
+    }, 2000);
+  });
+  </script>
   <script type="module" crossorigin src="./assets/index-U3GVJieb.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-C6HHd1Gx.css">
 <script defer src="./~flock.js" data-proxy-url="/~api/analytics"></script></head>
